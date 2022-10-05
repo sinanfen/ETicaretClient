@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { Create_Product } from 'src/app/contracts/create_product';
@@ -19,6 +20,8 @@ export class CreateComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Output() createdProduct: EventEmitter<Create_Product> = new EventEmitter();
+
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
     this.showSpinner(SpinnerType.BallAtom);
     const create_product: Create_Product = new Create_Product();
@@ -26,31 +29,15 @@ export class CreateComponent extends BaseComponent implements OnInit {
     create_product.stock = parseInt(stock.value);
     create_product.price = parseFloat(price.value);
 
-    if (!name.value) {
-      this.alertify.message("Lütfen geçerli bir ürün adı giriniz..", {
-        dismissOthers: true,
-        messageType: MessageType.Warning,
-        position: Position.TopRight
-      });
-      return;
-    }
-
-    if (parseInt(stock.value) < 0) {
-      this.alertify.message("Lütfen geçerli bir stok bilgisi giriniz.", {
-        dismissOthers: true,
-        messageType: MessageType.Warning,
-        position: Position.TopRight
-      });
-    }
-
     this.productService.create(create_product, () => {
       this.hideSpinner(SpinnerType.BallAtom);
       this.alertify.message("Ürün başarıyla eklenmiştir.", {
         dismissOthers: true,
         messageType: MessageType.Success,
-        position: Position.BottomRight
+        position: Position.TopRight
       });
-    }, (errorMessage: any) => {
+      this.createdProduct.emit(create_product);
+    }, errorMessage => {
       this.alertify.message(errorMessage, {
         dismissOthers: true,
         messageType: MessageType.Error,
