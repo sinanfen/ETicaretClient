@@ -12,7 +12,9 @@ import { BaseComponent } from './base/base.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button'; // <-- EKLENDI
 import { HttpClientModule } from '@angular/common/http';
+
 import { FileUploadComponent } from './services/common/file-upload/file-upload.component';
+import { FileUploadModule } from './services/common/file-upload/file-upload.module';
 import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upload-dialog.component';
 
 

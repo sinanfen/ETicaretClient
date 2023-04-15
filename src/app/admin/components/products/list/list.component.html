@@ -29,10 +29,16 @@
             <th mat-header-cell *matHeaderCellDef> Updated Date </th>
             <td mat-cell *matCellDef="let element"> {{element.updatedDate}} </td>
         </ng-container>
+         <!-- File Upload Column -->
+         <ng-container matColumnDef="photos">
+            <th mat-header-cell *matHeaderCellDef width="40"> Upload </th>
+            <td mat-cell *matCellDef="let element"><img src="../../../../../assets/file-upload.png" (click)="addProductImages(element.id)" style="cursor: pointer;" width="25px"
+                    height="25px"></td>
+        </ng-container>
         <!-- Edit Column -->
         <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef width="40"> Edit </th>
-            <td mat-cell *matCellDef="let element"><img src="../../../../../assets/edit-45-48.png" width="25px"
+            <td mat-cell *matCellDef="let element"><img src="../../../../../assets/edit-45-48.png" style="cursor: pointer;" width="25px"
                     height="25px"></td>
         </ng-container>
         <!-- Delete Column -->
