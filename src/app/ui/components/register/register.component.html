@@ -3,24 +3,24 @@
     <div class="col-md-6">
         <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
             <div class="form-group">
-                <label for="adSoyad">Ad Soyad</label>
-                <input type="text" formControlName="adSoyad" class="form-control" id="adSoyad"
-                    [ngClass]="{'is-invalid':submitted && component.adSoyad.errors}" aria-describedby="emailHelp"
+                <label for="nameSurname">Ad Soyad</label>
+                <input type="text" formControlName="nameSurname" class="form-control" id="nameSurname"
+                    [ngClass]="{'is-invalid':submitted && component.nameSurname.errors}" aria-describedby="emailHelp"
                     placeholder="ad soyad">
-                <small class="form-text text-muted text-danger" *ngIf="submitted && component.adSoyad.errors?.required">
+                <small class="form-text text-muted text-danger" *ngIf="submitted && component.nameSurname.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
                 <small class="form-text text-muted text-danger" *ngIf="submitted && 
-                     (component.adSoyad.errors?.maxlength || component.adSoyad.errors?.minlength)
+                     (component.nameSurname.errors?.maxlength || component.nameSurname.errors?.minlength)
                     ">
                     Lütfen 3 - 50 karakter arasında değer giriniz.</small>
             </div>
             <div class="form-group">
-                <label for="kullaniciAdi">Kullanıcı Adı</label>
-                <input type="text" formControlName="kullaniciAdi"
-                    [ngClass]="{'is-invalid':submitted && component.kullaniciAdi.errors}" class="form-control"
-                    id="kullaniciAdi" aria-describedby="emailHelp" placeholder="kullanıcı adı">
+                <label for="userName">Kullanıcı Adı</label>
+                <input type="text" formControlName="userName"
+                    [ngClass]="{'is-invalid':submitted && component.userName.errors}" class="form-control"
+                    id="userName" aria-describedby="emailHelp" placeholder="kullanıcı adı">
                 <small class="form-text text-muted text-danger"
-                    *ngIf="submitted && component.kullaniciAdi.errors?.required">
+                    *ngIf="submitted && component.userName.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
             </div>
             <div class="form-group">
@@ -33,20 +33,20 @@
                     Lütfen geçerli bir email giriniz.</small>
             </div>
             <div class="form-group">
-                <label for="sifre">Şifre </label>
+                <label for="password">Şifre </label>
                 <input type="password" class="form-control"
-                    [ngClass]="{'is-invalid':submitted && component.sifre.errors}" formControlName="sifre" id="sifre"
+                    [ngClass]="{'is-invalid':submitted && component.password.errors}" formControlName="password" id="password"
                     placeholder="şifre">
-                <small class="form-text text-muted text-danger" *ngIf="submitted && component.sifre.errors?.required">
+                <small class="form-text text-muted text-danger" *ngIf="submitted && component.password.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
             </div>
             <div class="form-group">
-                <label for="sifreTekrar">Şifre Tekrarı</label>
+                <label for="passwordConfirm">Şifre Tekrarı</label>
                 <input type="password" class="form-control"
-                    [ngClass]="{'is-invalid':submitted && component.sifreTekrar.errors}" formControlName="sifreTekrar"
-                    id="sifreTekrar" placeholder="şifre tekrarı">
+                    [ngClass]="{'is-invalid':submitted && component.passwordConfirm.errors}" formControlName="passwordConfirm"
+                    id="passwordConfirm" placeholder="şifre tekrarı">
                 <small class="form-text text-muted text-danger"
-                    *ngIf="submitted && component.sifreTekrar.errors?.required">
+                    *ngIf="submitted && component.passwordConfirm.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
                     <small class="form-text text-muted text-danger"
                     *ngIf="submitted && frm.hasError('notSame')">

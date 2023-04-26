@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { User } from 'src/app/entities/user';
 
 @Component({
   selector: 'app-register',
@@ -13,11 +14,11 @@ export class RegisterComponent implements OnInit {
   frm: FormGroup;
   ngOnInit(): void {
     this.frm = this.formBuilder.group({
-      adSoyad: ["",
+      nameSurname: ["",
         [Validators.required,
         Validators.maxLength(50),
         Validators.minLength(3)]],
-      kullaniciAdi: ["",
+      userName: ["",
         [Validators.required,
         Validators.maxLength(50),
         Validators.minLength(3)]],
@@ -25,18 +26,18 @@ export class RegisterComponent implements OnInit {
         [Validators.required,
         Validators.maxLength(250),
         Validators.email]],
-      sifre: ["",
+      password: ["",
         [Validators.required,
         Validators.maxLength(16),
         Validators.minLength(5)]],
-      sifreTekrar: ["",
+      passwordConfirm: ["",
         [Validators.required,
         Validators.maxLength(16),
         Validators.minLength(5)]],
     }, {
       validators: (group: AbstractControl): ValidationErrors | null => {
-        let sifre = group.get("sifre").value;
-        let sifreTekrar = group.get("sifreTekrar").value;
+        let sifre = group.get("password").value;
+        let sifreTekrar = group.get("passwordConfirm").value;
 
         return sifre === sifreTekrar ? null : { notSame: true };
       }
@@ -50,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
   submitted: boolean = false;
 
-  onSubmit(data: any) {
+  onSubmit(user: User) {
     this.submitted = true;
     if (this.frm.invalid)
       return
