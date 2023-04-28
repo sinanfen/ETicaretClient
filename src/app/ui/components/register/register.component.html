@@ -7,7 +7,8 @@
                 <input type="text" formControlName="nameSurname" class="form-control" id="nameSurname"
                     [ngClass]="{'is-invalid':submitted && component.nameSurname.errors}" aria-describedby="emailHelp"
                     placeholder="ad soyad">
-                <small class="form-text text-muted text-danger" *ngIf="submitted && component.nameSurname.errors?.required">
+                <small class="form-text text-muted text-danger"
+                    *ngIf="submitted && component.nameSurname.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
                 <small class="form-text text-muted text-danger" *ngIf="submitted && 
                      (component.nameSurname.errors?.maxlength || component.nameSurname.errors?.minlength)
@@ -17,8 +18,8 @@
             <div class="form-group">
                 <label for="userName">Kullanıcı Adı</label>
                 <input type="text" formControlName="userName"
-                    [ngClass]="{'is-invalid':submitted && component.userName.errors}" class="form-control"
-                    id="userName" aria-describedby="emailHelp" placeholder="kullanıcı adı">
+                    [ngClass]="{'is-invalid':submitted && component.userName.errors}" class="form-control" id="userName"
+                    aria-describedby="emailHelp" placeholder="kullanıcı adı">
                 <small class="form-text text-muted text-danger"
                     *ngIf="submitted && component.userName.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
@@ -35,21 +36,21 @@
             <div class="form-group">
                 <label for="password">Şifre </label>
                 <input type="password" class="form-control"
-                    [ngClass]="{'is-invalid':submitted && component.password.errors}" formControlName="password" id="password"
-                    placeholder="şifre">
-                <small class="form-text text-muted text-danger" *ngIf="submitted && component.password.errors?.required">
+                    [ngClass]="{'is-invalid':submitted && component.password.errors}" formControlName="password"
+                    id="password" placeholder="şifre">
+                <small class="form-text text-muted text-danger"
+                    *ngIf="submitted && component.password.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
             </div>
             <div class="form-group">
                 <label for="passwordConfirm">Şifre Tekrarı</label>
                 <input type="password" class="form-control"
-                    [ngClass]="{'is-invalid':submitted && component.passwordConfirm.errors}" formControlName="passwordConfirm"
-                    id="passwordConfirm" placeholder="şifre tekrarı">
+                    [ngClass]="{'is-invalid':submitted && component.passwordConfirm.errors}"
+                    formControlName="passwordConfirm" id="passwordConfirm" placeholder="şifre tekrarı">
                 <small class="form-text text-muted text-danger"
                     *ngIf="submitted && component.passwordConfirm.errors?.required">
                     Lütfen bu alanı boş bırakmayınız.</small>
-                    <small class="form-text text-muted text-danger"
-                    *ngIf="submitted && frm.hasError('notSame')">
+                <small class="form-text text-muted text-danger" *ngIf="submitted && frm.hasError('notSame')">
                     Girilen şifreler eşleşmelidir.</small>
             </div>
             <br>
