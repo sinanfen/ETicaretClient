@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\dialogs",
+    "\\src\\app\\dialogs\\select-product-image-dialog",
+    "\\src\\app\\directives\\admin",
+    "\\src\\app\\services\\admin",
+    "\\src\\app\\services\\common"
+  ],
+  "SelectedNode": "\\src\\app\\dialogs\\dialog.module.ts",
+  "PreviewInSolutionExplorer": false
+}
